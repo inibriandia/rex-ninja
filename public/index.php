@@ -58,3 +58,7 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+/*
+ * Test de commande
+ * */
