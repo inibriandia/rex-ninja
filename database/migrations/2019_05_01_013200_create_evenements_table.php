@@ -29,6 +29,7 @@ class CreateEvenementsTable extends Migration
             $table->string('descriptionAdresse');
             $table->double('latitude');
             $table->double('longitude');
+            $table->double('prix');
             $table->timestamps();
         });
     }
