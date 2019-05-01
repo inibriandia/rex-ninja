@@ -11,6 +11,8 @@ class ProvinceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('provinces')->insert([
+            'province' => 'New Brunswick',
+        ]);
     }
 }

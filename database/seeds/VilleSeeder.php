@@ -11,6 +11,8 @@ class VilleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('villes')->insert([
+            'ville' => 'Bathurst',
+        ]);
     }
 }
