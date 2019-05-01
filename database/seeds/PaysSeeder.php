@@ -18,5 +18,9 @@ class PaysSeeder extends Seeder
         DB::table('pays')->insert([
             'pays' => 'USA',
         ]);
+
+        DB::table('pays')->insert([
+            'pays' => 'France',
+        ]);
     }
 }
