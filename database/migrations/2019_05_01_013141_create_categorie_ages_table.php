@@ -15,7 +15,7 @@ class CreateCategorieAgesTable extends Migration
     {
         Schema::create('categorie_ages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('categorieAge');
         });
     }
 

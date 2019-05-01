@@ -15,7 +15,7 @@ class CreateAmbiancesTable extends Migration
     {
         Schema::create('ambiances', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('ambiance');
         });
     }
 
