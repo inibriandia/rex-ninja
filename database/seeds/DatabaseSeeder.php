@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
             PaysSeeder::class,
             ProvinceSeeder::class,
             VilleSeeder::class,
+            CategorieSeeder::class,
+
         ]);
     }
 }
