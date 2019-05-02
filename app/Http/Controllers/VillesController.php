@@ -14,8 +14,10 @@ class VillesController extends Controller
      */
     public function index()
     {
+        // Afficher toutes les villes ou des villes selon des criteres
         //return view('villes.index');
-        $villes = Ville::all();
+        //$villes = Ville::all();
+        $villes = Ville::orderBy('ville', 'asc')->get();
         return view('villes.index')->with('villes', $villes);
     }
 
@@ -48,7 +50,9 @@ class VillesController extends Controller
      */
     public function show($id)
     {
-        //
+        // Afficher une ville correspondant à un id donne
+        $ville = Ville::find($id);
+        return $ville;
     }
 
     /**

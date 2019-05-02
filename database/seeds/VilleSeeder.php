@@ -14,5 +14,17 @@ class VilleSeeder extends Seeder
         DB::table('villes')->insert([
             'ville' => 'Bathurst',
         ]);
+
+        DB::table('villes')->insert([
+            'ville' => 'Moncton',
+        ]);
+
+        DB::table('villes')->insert([
+            'ville' => 'Saint John',
+        ]);
+
+        DB::table('villes')->insert([
+            'ville' => 'Frédericton',
+        ]);
     }
 }
