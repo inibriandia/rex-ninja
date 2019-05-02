@@ -16,3 +16,7 @@
 });*/
 
 Route::get('/', 'PagesController@index');
+
+Route::resource('evenements', 'EvenementsController');
+
+Route::resource('villes', 'VillesController');
