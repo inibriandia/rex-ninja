@@ -16,3 +16,5 @@
 });*/
 
 Route::get('/', 'PagesController@index');
+
+Route::get('/EP2', 'PagesController@index');
