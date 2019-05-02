@@ -20,3 +20,6 @@ Route::get('/', 'PagesController@index');
 Route::resource('evenements', 'EvenementsController');
 
 Route::resource('villes', 'VillesController');
+
+Route::get('/EP2', 'PagesController@index');
+//>>>>>>> 2d932e06d4ca4675bcc971ab252403b089e9421c
