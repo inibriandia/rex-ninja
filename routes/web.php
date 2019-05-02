@@ -27,6 +27,3 @@ Route::get('/select', 'PagesController@indiquerChoix');
 
 
 Route::resource('villes', 'VillesController');
-
-
-Route::get('/EP2', 'ObtenirEvenementProfilController@index');
