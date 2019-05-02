@@ -13,7 +13,8 @@ class EvenementsController extends Controller
      */
     public function index()
     {
-        //
+        // Retourner tous les evenements
+        // EP 2 : Fait par Jessica
     }
 
     /**
@@ -45,7 +46,8 @@ class EvenementsController extends Controller
      */
     public function show($id)
     {
-        //
+        // Retourner les détails d'un évenement spécifique
+        // EP 3 : Fait par Pierre
     }
 
     /**

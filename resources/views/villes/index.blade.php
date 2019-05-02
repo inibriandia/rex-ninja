@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Hello</h1>
+    <h1>Liste des villes</h1>
     @if(count($villes) > 0)
         <ul>
             @foreach($villes as $ville)

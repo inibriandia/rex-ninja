@@ -15,5 +15,12 @@ class CategorieSeeder extends Seeder
             'categorie' => 'Sport',
         ]);
 
+        DB::table('categories')->insert([
+            'categorie' => 'Musique',
+        ]);
+
+        DB::table('categories')->insert([
+            'categorie' => 'Art visuels',
+        ]);
     }
 }

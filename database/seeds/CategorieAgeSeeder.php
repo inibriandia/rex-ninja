@@ -11,6 +11,8 @@ class CategorieAgeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('categorie_ages')->insert([
+            'categorieAge' => 'Tout age',
+        ]);
     }
 }
