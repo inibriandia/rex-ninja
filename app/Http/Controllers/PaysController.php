@@ -15,7 +15,7 @@ class PaysController extends Controller
      */
     public function index()
     {
-        $pays = Pays::orderBy('pays', 'asc')->get();
+        $pays = Pays::select('pays')->get();
         return json_encode($pays);
     }
 

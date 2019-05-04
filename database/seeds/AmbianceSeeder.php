@@ -11,6 +11,16 @@ class AmbianceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('ambiances')->insert([
+            'ambiance' => 'Plein air',
+        ]);
+
+        DB::table('ambiances')->insert([
+            'ambiance' => 'Intérieur',
+        ]);
+
+        DB::table('ambiances')->insert([
+            'ambiance' => 'Mer',
+        ]);
     }
 }
