@@ -26,4 +26,7 @@ Route::resource('evenements', 'EvenementsController');
 Route::get('/select', 'PagesController@indiquerChoix');
 
 
+
 Route::resource('villes', 'VillesController');
+Route::resource('pays', 'PaysController');
+Route::resource('prov', 'ProvincesController');

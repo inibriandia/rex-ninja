@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Pays;
 use App\Ville;
 use Illuminate\Http\Request;
-use DB;
 
-class VillesController extends Controller
+class PaysController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +15,8 @@ class VillesController extends Controller
      */
     public function index()
     {
-        // Afficher toutes les villes ou des villes selon des criteres
-        //return view('villes.index');
-
-        //$villes = Ville::all();
-        // $posts = DB::select('SELECT * FROM posts');
-
-        //$villes = DB::select('SELECT * FROM villes ORDER BY ville');
-
-        $villes = Ville::orderBy('ville', 'asc')->get();
-        return view('villes.index')->with('villes', $villes);
+        $pays = Pays::orderBy('pays', 'asc')->get();
+        return json_encode($pays);
     }
 
     /**
@@ -56,9 +48,13 @@ class VillesController extends Controller
      */
     public function show($id)
     {
-        // Afficher une ville correspondant à un id donne
-        $ville = Ville::find($id);
-        return $ville;
+        /*
+         * $ville = Ville::find($id);
+        return json_encode($ville->Province);
+         */
+
+        $pays = Pays::find($id)->provinces;
+        return json_encode($pays);
     }
 
     /**
