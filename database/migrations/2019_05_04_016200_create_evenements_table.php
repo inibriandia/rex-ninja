@@ -55,13 +55,13 @@ class CreateEvenementsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            /*$table->foreign('ville_id')
+            $table->foreign('ambiance_id')
                 ->references('id')
-                ->on('villes')
+                ->on('ambiances')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('ville_id')
+            /*$table->foreign('ville_id')
                 ->references('id')
                 ->on('villes')
                 ->onDelete('cascade')
