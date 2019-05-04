@@ -61,11 +61,11 @@ class CreateEvenementsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            /*$table->foreign('ville_id')
+            $table->foreign('categorieAge_id')
                 ->references('id')
-                ->on('villes')
+                ->on('categorie_ages')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');*/
+                ->onUpdate('cascade');
 
             $table->timestamps();
         });
