@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Evenement;
 use Illuminate\Http\Request;
 
 class EvenementsController extends Controller
@@ -14,7 +15,10 @@ class EvenementsController extends Controller
     public function index()
     {
         // Retourner tous les evenements
-        // EP 2 : Fait par Jessica
+	    // EP 2 : A faire par Jessica
+
+        $evenements = Evenement::select('image', 'titre', 'latitude', 'longitude', 'id')->get();
+        return json_encode($evenements);
     }
 
     /**
