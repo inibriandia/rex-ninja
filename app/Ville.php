@@ -12,4 +12,9 @@ class Ville extends Model
     {
         return $this->belongsTo('App\Province');
     }
+
+    public function organisateurs()
+    {
+        return $this->hasMany('App\Organisateur');
+    }
 }
