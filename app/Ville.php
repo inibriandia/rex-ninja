@@ -17,4 +17,9 @@ class Ville extends Model
     {
         return $this->hasMany('App\Organisateur');
     }
+
+    public function evenements()
+    {
+        return $this->hasMany('App\Evenement');
+    }
 }

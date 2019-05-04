@@ -12,4 +12,8 @@ class Organisateur extends Model
     {
         return $this->belongsTo('App\Ville');
     }
+    public function evenements()
+    {
+        return $this->hasMany('App\Evenement');
+    }
 }
