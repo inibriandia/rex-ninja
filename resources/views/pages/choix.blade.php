@@ -11,3 +11,17 @@
         <li>{{$cat->categorieAge}}</li>
     @endforeach
 </ul>
+
+<h1>Type Ambiances</h1>
+<ul>
+    @foreach($ambiance as $amb)
+        <li>{{$amb->ambiance}}</li>
+    @endforeach
+</ul>
+
+<h1>Type Payant/Gratuit</h1>
+<ul>
+    @foreach($typePayant as $prix)
+        <li>{{$prix->prix}}</li>
+    @endforeach
+</ul>

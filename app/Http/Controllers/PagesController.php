@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Ambiance;
 use App\Categorie;
 use App\CategorieAge;
+use App\Evenement;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -19,8 +21,10 @@ class PagesController extends Controller
     {
         $categories = Categorie::all();
         $categoriesAge = CategorieAge::all();
+        $ambiance = Ambiance::all();
+        $typePayant = Evenement::all();
 
         // return view('pages.choix')->with('categories', $categories);
-        return view('pages.choix', compact('categories', 'categoriesAge'));
+        return view('pages.choix', compact('categories', 'categoriesAge', 'ambiance','typePayant'));
     }
 }
