@@ -19,7 +19,9 @@ class EvenementSeeder extends Seeder
             'dateFin' => '2019-06-01',
             'heureFin' => '20:00',
             'telephone' => '5061234567',
-            'image' => 'no image',
+            //'image' => '..\..\storage\app\public\event_image\2019-05-04-pingpong.jpg',
+            ///storage/event_image/2019-05-04-pingpong.jpg
+            'image' => '\storage\event_image\2019-05-04-pingpong.jpg',
             'lienFacebook' => 'https://www.facebook.com/',
             'numeroMaison' => '725',
             'nomRue' => 'college st',
