@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Evenement;
 use Illuminate\Http\Request;
+use DB;
 
 class EvenementsController extends Controller
 {
@@ -15,6 +17,17 @@ class EvenementsController extends Controller
     {
         // Retourner tous les evenements
         // EP 2 : Fait par Jessica
+        //image
+        //titreEvent
+        //latitudeEvent
+        //longitudeEvent
+        //latitudeUser
+        //longitudeUser
+        //IDEvent
+        // ...
+
+        $evenement = Evenement::orderBy('distance', 'asc')->get();
+        return view('evenement.index')->with('evenement', $evenement);
     }
 
     /**
