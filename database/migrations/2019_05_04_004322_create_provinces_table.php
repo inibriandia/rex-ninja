@@ -16,6 +16,14 @@ class CreateProvincesTable extends Migration
         Schema::create('provinces', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('province');
+            $table->unsignedBigInteger('pays_id');
+
+
+            $table->foreign('pays_id')
+                ->references('id')
+                ->on('Pays')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

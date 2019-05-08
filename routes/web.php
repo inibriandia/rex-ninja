@@ -15,9 +15,12 @@
     return view('welcome');
 });*/
 
+// Route de la page principal
+// Cette route va declencher l'execution de la page 'index' du controlleur
 Route::get('/', 'PagesController@index');
 
 // Route permettant de faire toutes les requetes
+// Le controlleur 'EvenementsController' va etre appele et la fonction correspondante va etre execute
 Route::resource('evenements', 'EvenementsController');
 
 
@@ -26,4 +29,7 @@ Route::resource('evenements', 'EvenementsController');
 Route::get('/select', 'PagesController@indiquerChoix');
 
 
+
 Route::resource('villes', 'VillesController');
+Route::resource('pays', 'PaysController');
+Route::resource('prov', 'ProvincesController');

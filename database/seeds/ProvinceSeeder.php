@@ -13,6 +13,12 @@ class ProvinceSeeder extends Seeder
     {
         DB::table('provinces')->insert([
             'province' => 'New Brunswick',
+            'Pays_id' => '1',
+        ]);
+
+        DB::table('provinces')->insert([
+            'province' => 'Québec',
+            'Pays_id' => '1',
         ]);
     }
 }

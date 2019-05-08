@@ -13,9 +13,17 @@ class CreateVillesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('villes');
         Schema::create('villes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ville');
+            $table->unsignedBigInteger('province_id');
+
+            $table->foreign('province_id')
+                    ->references('id')
+                    ->on('Provinces')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
         });
     }
 

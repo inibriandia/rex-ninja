@@ -21,7 +21,14 @@ class CreateOrganisateursTable extends Migration
             $table->string('telephone', 15);
             $table->string('entreprise', 45);
             $table->string('password', 45);
+            $table->unsignedBigInteger('ville_id');
             $table->timestamps();
+
+            $table->foreign('ville_id')
+                    ->references('id')
+                    ->on('villes')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
         });
     }
 
