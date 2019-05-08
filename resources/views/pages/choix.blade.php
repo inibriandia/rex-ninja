@@ -25,3 +25,4 @@
         <li>{{$prix->prix}}</li>
     @endforeach
 </ul>
+
