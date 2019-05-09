@@ -58,8 +58,11 @@ class EvenementsController extends Controller
      */
     public function show($id)
     {
-        // Retourner les détails d'un évenement spécifique
-        // EP 3 : Fait par Pierre
+        $evenement = Evenement::select('titre', 'prix','numeroMaison', 'nomRue', 'categorieAge_id', 'description',
+            'ambiance_id', 'telephone', 'lienFacebook', 'image', 'latitude', 'longitude')->where('id', $id)->get();
+
+        //$evenement = Evenement::select(DB::raw("CONCAT('numeroMaison', ' ', 'nomRue') AS addresse"))->where('id', $id)->get();
+        return json_encode($evenement);
     }
 
     /**
