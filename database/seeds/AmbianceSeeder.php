@@ -9,6 +9,7 @@ class AmbianceSeeder extends Seeder
      *
      * @return void
      */
+    //public $ambiance = "ambiance";
     public function run()
     {
         DB::table('ambiances')->insert([
