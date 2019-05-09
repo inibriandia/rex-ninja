@@ -15,7 +15,7 @@ class PaysController extends Controller
      */
     public function index()
     {
-        $pays = Pays::select('pays')->get();
+        $pays = Pays::select('pays')->where('id',1)->get();
         return json_encode($pays);
     }
 

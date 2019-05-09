@@ -16,18 +16,12 @@ class EvenementsController extends Controller
     public function index()
     {
         // Retourner tous les evenements
-        // EP 2 : Fait par Jessica
-        //image
-        //titreEvent
-        //latitudeEvent
-        //longitudeEvent
-        //latitudeUser
-        //longitudeUser
-        //IDEvent
-        // ...
 
-        $evenement = Evenement::orderBy('distance', 'asc')->get();
-        return view('evenement.index')->with('evenement', $evenement);
+        //$evenement = Evenement::orderBy('distance', 'asc')->get();
+        //return view('evenement.index')->with('evenement', $evenement);
+
+        $evenements = Evenement::select('image', 'titre', 'latitude', 'longitude', 'id')->get();
+        return json_encode($evenements);
     }
 
     /**

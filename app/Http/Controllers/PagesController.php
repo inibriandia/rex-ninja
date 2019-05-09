@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+//Collection::pluck();
+use App\Ambiance;
 use App\Categorie;
 use App\CategorieAge;
+use App\Evenement;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Project;
+
+//use function MongoDB\BSON\toJSON;
 
 class PagesController extends Controller
 {
@@ -19,8 +25,9 @@ class PagesController extends Controller
     {
         $categories = Categorie::all();
         $categoriesAge = CategorieAge::all();
+        $ambiance = Ambiance::all();
 
-        // return view('pages.choix')->with('categories', $categories);
-        return view('pages.choix', compact('categories', 'categoriesAge'));
+        $questions = array('categoriesAge'=>$categoriesAge,'categories'=>$categories,  'ambiances'=>$ambiance);
+        return json_encode($questions);
     }
 }
