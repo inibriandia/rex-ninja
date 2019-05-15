@@ -26,7 +26,9 @@ class EvenementsController extends Controller
             //->select('image', 'titre', 'latitude', 'longitude', raw(('sqrt(pow((latitude - ' . $lat . '),2) + pow((longitude - ' . $lon . '),2)) as distance'), 'id')
             //->orderBy('distance')
             //->get();
-        return json_encode($evenements);
+
+        //return json_encode($evenements);
+        return $age;
     }
 
     /**

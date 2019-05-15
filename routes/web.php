@@ -28,8 +28,7 @@ Route::resource('evenements', 'EvenementsController');
 // gerer la fonction indiquerChoix du controlleur PagesController
 Route::get('/select', 'PagesController@indiquerChoix');
 
+Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
 
-
-Route::resource('villes', 'VillesController');
-Route::resource('pays', 'PaysController');
-Route::resource('prov', 'ProvincesController');
+// /evenements/age/typeActivite/categorie/temps/prix
+// Ex : /evenements/19/interieur/sport/18/20
