@@ -28,7 +28,5 @@ Route::resource('evenements', 'EvenementsController');
 // gerer la fonction indiquerChoix du controlleur PagesController
 Route::get('/select', 'PagesController@indiquerChoix');
 
+// Nouvelle route pour résoudre le probleme du 2è endpoint
 Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
-
-// /evenements/age/typeActivite/categorie/temps/prix
-// Ex : /evenements/19/interieur/sport/18/20

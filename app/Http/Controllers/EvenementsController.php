@@ -27,8 +27,7 @@ class EvenementsController extends Controller
             //->orderBy('distance')
             //->get();
 
-        //return json_encode($evenements);
-        return $age;
+        return json_encode($evenements);
     }
 
     /**
