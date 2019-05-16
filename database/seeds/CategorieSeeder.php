@@ -22,5 +22,9 @@ class CategorieSeeder extends Seeder
         DB::table('categories')->insert([
             'categorie' => 'Art visuels',
         ]);
+
+        DB::table('categories')->insert([
+            'categorie' => 'Degustation',
+        ]);
     }
 }

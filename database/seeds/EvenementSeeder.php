@@ -19,9 +19,7 @@ class EvenementSeeder extends Seeder
             'dateFin' => '2019-06-01',
             'heureFin' => '20:00',
             'telephone' => '5061234567',
-            //'image' => '..\..\storage\app\public\event_image\2019-05-04-pingpong.jpg',
-            ///storage/event_image/2019-05-04-pingpong.jpg
-            'image' => '\storage\event_image\2019-05-04-pingpong.jpg',
+            'image' => 'https://images-na.ssl-images-amazon.com/images/I/81iyVA%2BDeXL._SL1500_.jpg',
             'lienFacebook' => 'https://www.facebook.com/',
             'numeroMaison' => '725',
             'nomRue' => 'college st',
@@ -44,9 +42,7 @@ class EvenementSeeder extends Seeder
             'dateFin' => '2019-06-03',
             'heureFin' => '21:00',
             'telephone' => '5061234567',
-            //'image' => '..\..\storage\app\public\event_image\2019-05-04-pingpong.jpg',
-            ///storage/event_image/2019-05-04-pingpong.jpg
-            'image' => '\storage\event_image\2019-05-16-escalade.jpg',
+            'image' => 'https://ei.marketwatch.com/Multimedia/2018/03/27/Photos/MG/MW-GG356_climbi_20180327164650_MG.jpg',
             'lienFacebook' => 'https://www.facebook.com/',
             'numeroMaison' => '640',
             'nomRue' => 'rue King',
@@ -59,6 +55,29 @@ class EvenementSeeder extends Seeder
             'categorie_id' => '1',
             'ambiance_id' => '2',
             'categorieAge_id' => '1',
+        ]);
+
+        DB::table('evenements')->insert([
+            'titre' => 'Bierre local',
+            'description' => 'Pierreprog vous présente la degustation de la bierre locale',
+            'dateDebut' => '2019-06-12',
+            'heureDebut' => '21:00',
+            'dateFin' => '2019-06-13',
+            'heureFin' => '2:00',
+            'telephone' => '5063456789',
+            'image' => 'https://fastly.4sqi.net/img/general/600x600/464411546__-pyw0pxuCAi-cceP4wNq0n4ZHcuf9c5Ob4-3cOmtY8.jpg',
+            'lienFacebook' => 'https://www.facebook.com/',
+            'numeroMaison' => '100',
+            'nomRue' => 'rue Main',
+            'descriptionAdresse' => 'Devant le subway',
+            'latitude' => '47.6202446',
+            'longitude' => '-65.6563534',
+            'prix' => '30',
+            'organisateur_id' => '3',
+            'ville_id' => '1',
+            'categorie_id' => '4',
+            'ambiance_id' => '2',
+            'categorieAge_id' => '2',
         ]);
     }
 }
