@@ -35,5 +35,30 @@ class EvenementSeeder extends Seeder
             'ambiance_id' => '2',
             'categorieAge_id' => '1',
         ]);
+
+        DB::table('evenements')->insert([
+            'titre' => 'Escalade',
+            'description' => 'YahyaProg vous présente un tournoi d escalade',
+            'dateDebut' => '2019-06-02',
+            'heureDebut' => '20:00',
+            'dateFin' => '2019-06-03',
+            'heureFin' => '21:00',
+            'telephone' => '5061234567',
+            //'image' => '..\..\storage\app\public\event_image\2019-05-04-pingpong.jpg',
+            ///storage/event_image/2019-05-04-pingpong.jpg
+            'image' => '\storage\event_image\2019-05-16-escalade.jpg',
+            'lienFacebook' => 'https://www.facebook.com/',
+            'numeroMaison' => '640',
+            'nomRue' => 'rue King',
+            'descriptionAdresse' => 'BHS',
+            'latitude' => '47.6148341',
+            'longitude' => '-65.6526373',
+            'prix' => '20',
+            'organisateur_id' => '6',
+            'ville_id' => '1',
+            'categorie_id' => '1',
+            'ambiance_id' => '2',
+            'categorieAge_id' => '1',
+        ]);
     }
 }
