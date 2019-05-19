@@ -10,7 +10,7 @@ use App\Evenement;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Project;
 
-//use function MongoDB\BSON\toJSON;
+// use function MongoDB\BSON\toJSON;
 
 class PagesController extends Controller
 {
@@ -30,4 +30,5 @@ class PagesController extends Controller
         $questions = array('categoriesAge'=>$categoriesAge,'categories'=>$categories,  'ambiances'=>$ambiance);
         return json_encode($questions);
     }
+
 }

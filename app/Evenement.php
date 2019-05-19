@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evenement extends Model
 {
-    public function categorie()
-    {
-        return $this->belongsTo('App\Categorie');
-    }
+    public function categorie(){
+        return $this->belongsTo('App\Categorie');}
 
     public function categorieAge()
     {

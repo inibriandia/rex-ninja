@@ -30,3 +30,6 @@ Route::get('/select', 'PagesController@indiquerChoix');
 
 // Nouvelle route pour résoudre le probleme du 2è endpoint
 Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
+
+
+
