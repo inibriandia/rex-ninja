@@ -24,6 +24,7 @@ class CreateEvenementsTable extends Migration
             $table->string('telephone', 15);
             $table->string('image');
             $table->string('lienFacebook');
+            $table->string('email');
             $table->string('numeroMaison');
             $table->string('nomRue');
             $table->string('descriptionAdresse');

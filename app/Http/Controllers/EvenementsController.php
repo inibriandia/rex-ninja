@@ -59,7 +59,7 @@ class EvenementsController extends Controller
      */
     public function show($id)
     {
-        $evenement = Evenement::select('titre', 'prix','numeroMaison', 'nomRue', 'categorieAge_id', 'description',
+        $evenement = Evenement::select('titre', 'prix','numeroMaison', 'email', 'nomRue', 'categorieAge_id', 'description',
             'ambiance_id', 'telephone', 'lienFacebook', 'image', 'latitude', 'longitude')->where('id', $id)->get();
 
         //$evenement = Evenement::select(DB::raw("CONCAT('numeroMaison', ' ', 'nomRue') AS addresse"))->where('id', $id)->get();
