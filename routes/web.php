@@ -27,9 +27,21 @@ Route::resource('evenements', 'EvenementsController');
 // Endpoint de Ange
 // gerer la fonction indiquerChoix du controlleur PagesController
 Route::get('/select', 'PagesController@indiquerChoix');
+// gerer la fonction indiquerPays du controlleur PaysController
+Route::get('/pays', 'PaysController@index');
+// gerer la fonction getprovinces du controlleur ProvincesPaysController
+Route::get('/getprovinces/{id}', 'ProvincesPaysController@getprovinces');
+
+// gerer la fonction Show du controlleur ProvinvesController
+Route::get('/getvilles/{id}', 'VillesController@getvilles');
+
 
 // Nouvelle route pour résoudre le probleme du 2è endpoint
 Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
 
+
+Route::get('/event', function () {
+    return view('pages.event');
+});
 
 

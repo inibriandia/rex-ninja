@@ -14,7 +14,8 @@ class ProvincesController extends Controller
      */
     public function index()
     {
-        //
+        $provinces = Province::ALL();
+        return json_encode($provinces);
     }
 
     /**
@@ -49,6 +50,7 @@ class ProvincesController extends Controller
         $provinces = Province::find($id);
         return json_encode($provinces);
     }
+
 
     /**
      * Show the form for editing the specified resource.

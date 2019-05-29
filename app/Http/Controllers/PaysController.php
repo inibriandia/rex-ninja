@@ -15,10 +15,17 @@ class PaysController extends Controller
      */
     public function index()
     {
-        $pays = Pays::select('pays')->where('id',1)->get();
+        $pays = Pays::all();
         return json_encode($pays);
     }
 
+    // Retourner les donnes de tout les  pays
+    /*public function indiquerPays()
+    {
+        $pays = Pays::all();
+
+        return json_encode($pays);
+    }*/
     /**
      * Show the form for creating a new resource.
      *

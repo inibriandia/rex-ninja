@@ -7,6 +7,7 @@ use App\Ambiance;
 use App\Categorie;
 use App\CategorieAge;
 use App\Evenement;
+use App\Pays;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Project;
 
@@ -30,5 +31,7 @@ class PagesController extends Controller
         $questions = array('categoriesAge'=>$categoriesAge,'categories'=>$categories,  'ambiances'=>$ambiance);
         return json_encode($questions);
     }
+
+
 
 }

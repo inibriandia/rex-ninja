@@ -20,5 +20,13 @@ class ProvinceSeeder extends Seeder
             'province' => 'Québec',
             'Pays_id' => '1',
         ]);
+        DB::table('provinces')->insert([
+            'province' => 'Washington',
+            'Pays_id' => '2',
+        ]);
+        DB::table('provinces')->insert([
+            'province' => 'Chicago',
+            'Pays_id' => '2',
+        ]);
     }
 }
