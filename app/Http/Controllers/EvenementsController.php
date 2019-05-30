@@ -49,29 +49,49 @@ class EvenementsController extends Controller
      */
     public function store(Request $request)
     {
+        info($request);
+
         $this->validate($request,[
             'titre' => 'required',
             'description' => 'required',
-            /*'dateDebut' => 'required',
+            'dateDebut' => 'required',
             'heureDebut' => 'required',
             'dateFin' => 'required',
             'heureFin' => 'required',
             'telephone' => 'required',
-            'telephoneCell' => 'required',
+            'cellulaire' => 'required',
+            'image' => 'image|nullable|max:1999',
+            'lienFacebook' => 'nullable',
             'email' => 'required',
             'numeroMaison' => 'required',
             'nomRue' => 'required',
-            //'email' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
             'prix' => 'required',
             'organisateur_id'=>'required',
             'ville_id' => 'required',
             'categorie_id' => 'required',
-            'ambiamce_id' => 'required',
-            'categorieAge_id' => 'required',*/
+            'ambiance_id' => 'required',
+            'categorieAge_id' => 'required',
 
         ]);
+
+        // Valider les images
+
+        if($request->hasFile('image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         //create event
 
@@ -84,8 +104,8 @@ class EvenementsController extends Controller
         $event->dateFin = $request->input('dateFin');
         $event->heureFin = $request->input('heureFin');
         $event->telephone = $request->input('telephone');
-        //$event->telephoneCell = $request->input('telephoneCell');
-        $event->image = $request->input('image');
+        $event->cellulaire = $request->input('cellulaire');
+        $event->image = 'http://explorenb.local:81/storage/images/'.$fileNameToStore;
         $event->lienFacebook = $request->input('lienFacebook');
         $event->email = $request->input('email');
         $event->numeroMaison = $request->input('numeroMaison');
