@@ -40,6 +40,10 @@
         {{Form::text('telephone','',['class' => 'form-control','placeholder' => 'Telephone'])}}
     </div>
     <div class="form-group">
+        {{Form::label('cellulaire','Telephone cellulaire')}}
+        {{Form::text('cellulaire','',['class' => 'form-control','placeholder' => 'Telephone Cellulaire'])}}
+    </div>
+    <div class="form-group">
         {{Form::label('image','Image')}}
         {{Form::text('image','',['class' => 'form-control','placeholder' => 'Image'])}}
     </div>

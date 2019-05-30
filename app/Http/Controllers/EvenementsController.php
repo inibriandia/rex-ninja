@@ -47,8 +47,13 @@ class EvenementsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function get_id_ville($name){
+        $ville = Ville::find($name);
+        return $ville->id;
+    }
     public function store(Request $request)
     {
+
         $this->validate($request,[
             'titre' => 'required',
             'description' => 'required',
@@ -84,7 +89,7 @@ class EvenementsController extends Controller
         $event->dateFin = $request->input('dateFin');
         $event->heureFin = $request->input('heureFin');
         $event->telephone = $request->input('telephone');
-        //$event->telephoneCell = $request->input('telephoneCell');
+        $event->cellulaire = $request->input('celullaire');
         $event->image = $request->input('image');
         $event->lienFacebook = $request->input('lienFacebook');
         $event->email = $request->input('email');
@@ -95,7 +100,7 @@ class EvenementsController extends Controller
         $event->longitude = $request->input('longitude');
         $event->prix = $request->input('prix');
         $event->organisateur_id = $request->input('organisateur_id');
-        $event->ville_id =  $request->input('ville_id');
+        $event->ville_id = Ville::where('ville',$request->input('ville_id'))->get('id');
         $event->categorie_id = $request->input('categorie_id');
         $event->ambiance_id = $request->input('ambiance_id');
         $event->categorieAge_id = $request->input('categorieAge_id');
