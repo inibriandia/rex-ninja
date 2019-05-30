@@ -9,7 +9,7 @@
 
 @section('content')
     <h1>Create Posts</h1>
-    {!! Form::open(['action' => 'EvenementsController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'EvenementsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('titre','Titre')}}
         {{Form::text('titre','',['class' => 'form-control','placeholder' => 'Title'])}}
@@ -40,12 +40,16 @@
         {{Form::text('telephone','',['class' => 'form-control','placeholder' => 'Telephone'])}}
     </div>
     <div class="form-group">
-        {{Form::label('cellulaire','Telephone cellulaire')}}
-        {{Form::text('cellulaire','',['class' => 'form-control','placeholder' => 'Telephone Cellulaire'])}}
+        {{Form::label('cellulaire','Cellulaire')}}
+        {{Form::text('cellulaire','',['class' => 'form-control','placeholder' => 'Cellulaire'])}}
     </div>
     <div class="form-group">
         {{Form::label('image','Image')}}
-        {{Form::text('image','',['class' => 'form-control','placeholder' => 'Image'])}}
+        {{Form::file('image')}}
+    </div>
+    <div class="form-group">
+        {{Form::label('lienFacebook','Lien Facebook')}}
+        {{Form::text('lienFacebook','',['class' => 'form-control','placeholder' => 'page:Bellenature'])}}
     </div>
     <div class="form-group">
         {{Form::label('email','Email')}}
@@ -76,16 +80,16 @@
         {{Form::text('prix','',['class' => 'form-control','placeholder' => '0'])}}
     </div>
     <div class="form-group">
-        {{Form::label('lienFacebook','Lien Facebook')}}
-        {{Form::text('lienFacebook','',['class' => 'form-control','placeholder' => 'page:Bellenature'])}}
-    </div>
-    <div class="form-group">
         {{Form::label('organisateur_id','num Organisateur')}}
         {{Form::text('organisateur_id','',['class' => 'form-control','placeholder' => '2'])}}
     </div>
     <div class="form-group">
         {{Form::label('ville_id','num ville')}}
         {{Form::text('ville_id','',['class' => 'form-control','placeholder' => '1'])}}
+    </div>
+    <div class="form-group">
+        {{Form::label('province_id','Province')}}
+        {{Form::text('province_id','', ['class' => 'form-control'])}}
     </div>
     <div class="form-group">
         {{Form::label('categorie_id','num categorie')}}
@@ -99,7 +103,6 @@
         {{Form::label('categorieAge_id','num categorie Age')}}
         {{Form::text('categorieAge_id','',['class' => 'form-control','placeholder' => '2'])}}
     </div>
-
 
     {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}

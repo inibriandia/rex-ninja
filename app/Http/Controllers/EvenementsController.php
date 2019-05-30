@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Evenement;
+use App\Province;
 use App\Ville;
 use Illuminate\Http\Request;
 use DB;
@@ -19,14 +20,14 @@ class EvenementsController extends Controller
 
         //$evenement = Evenement::orderBy('distance', 'asc')->get();
         //return view('evenement.index')->with('evenement', $evenement);
-         $lat = 13.452740;
-         $lon = -16.578030;
+        $lat = 13.452740;
+        $lon = -16.578030;
 
         $evenements = Evenement::select('image', 'titre', 'latitude', 'longitude', DB::raw('sqrt(pow((latitude - ' . $lat . '),2) + pow((longitude - ' . $lon . '),2)) as distance'), 'id')->orderBy('distance', 'asc')->get();
         //$evenements = DB::table('Evenement')
-            //->select('image', 'titre', 'latitude', 'longitude', raw(('sqrt(pow((latitude - ' . $lat . '),2) + pow((longitude - ' . $lon . '),2)) as distance'), 'id')
-            //->orderBy('distance')
-            //->get();
+        //->select('image', 'titre', 'latitude', 'longitude', raw(('sqrt(pow((latitude - ' . $lat . '),2) + pow((longitude - ' . $lon . '),2)) as distance'), 'id')
+        //->orderBy('distance')
+        //->get();
 
         return json_encode($evenements);
     }
@@ -38,8 +39,17 @@ class EvenementsController extends Controller
      */
     public function create()
     {
-        return view('pages.event');
+        /*$items = DB::table('provinces')->with(['name', 'id']);
+
+        $instructors = DB::table('instructors')
+            ->where('instructors.Viewable','=', 1)
+            ->select(DB::raw('concat (FirstName," ",LastName) as FullName, id'));
+
+
+        $itemsOptions = array('' => 'Select Province') + $items->pluck('id', 'province')->toArray();*/
+       // return view('pages.event');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -47,40 +57,75 @@ class EvenementsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function get_id_ville($name){
-        $ville = Ville::find($name);
-        return $ville->id;
-    }
     public function store(Request $request)
     {
+
+        info($request);
 
         $this->validate($request,[
             'titre' => 'required',
             'description' => 'required',
-            /*'dateDebut' => 'required',
+            'dateDebut' => 'required',
             'heureDebut' => 'required',
             'dateFin' => 'required',
             'heureFin' => 'required',
             'telephone' => 'required',
-            'telephoneCell' => 'required',
+            'cellulaire' => 'required',
+            'image' => 'image|nullable|max:1999',
+            'lienFacebook' => 'nullable',
             'email' => 'required',
             'numeroMaison' => 'required',
             'nomRue' => 'required',
-            //'email' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
             'prix' => 'required',
             'organisateur_id'=>'required',
             'ville_id' => 'required',
             'categorie_id' => 'required',
-            'ambiamce_id' => 'required',
-            'categorieAge_id' => 'required',*/
+            'ambiance_id' => 'required',
+            'categorieAge_id' => 'required',
 
         ]);
+
+        // Valider les images
+
+        if($request->hasFile('image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         //create event
 
         $event = new Evenement;
+
+        // verifier si la ville est dans la base de données et l'ajouter si non
+
+        if(Ville::where('id', Ville::select('id')->where('ville',$request->input('ville_id'))->value('id'))->get()){
+            $event->ville_id =  Ville::select('id')->where('ville',$request->input('ville_id'))->value('id');
+
+        }
+        if(Ville::where('id','!=' ,Ville::select('id')->where('ville',$request->input('ville_id'))->value('id'))->get()){
+
+            DB::table('villes')->insert([
+                'ville' => $request->input('ville_id'),
+                //'province_id' => Province::select('id')->where('province',$request->input('provinces_id'))->value('id')
+                'province_id' =>'1',
+            ]);
+            $event->ville_id =  Ville::select('id')->where('ville',$request->input('ville_id'))->value('id');
+
+        }
+
+
 
         $event->titre = $request->input('titre');
         $event->description = $request->input('description');
@@ -89,8 +134,8 @@ class EvenementsController extends Controller
         $event->dateFin = $request->input('dateFin');
         $event->heureFin = $request->input('heureFin');
         $event->telephone = $request->input('telephone');
-        $event->cellulaire = $request->input('celullaire');
-        $event->image = $request->input('image');
+        $event->cellulaire = $request->input('cellulaire');
+        $event->image = 'http://explorenb.local:81/storage/images/'.$fileNameToStore;
         $event->lienFacebook = $request->input('lienFacebook');
         $event->email = $request->input('email');
         $event->numeroMaison = $request->input('numeroMaison');
@@ -100,7 +145,8 @@ class EvenementsController extends Controller
         $event->longitude = $request->input('longitude');
         $event->prix = $request->input('prix');
         $event->organisateur_id = $request->input('organisateur_id');
-        $event->ville_id = Ville::where('ville',$request->input('ville_id'))->get('id');
+
+        //$event->provinces_id = Province::select('id')->where('province',$request->input('provinces_id'))->value('id');
         $event->categorie_id = $request->input('categorie_id');
         $event->ambiance_id = $request->input('ambiance_id');
         $event->categorieAge_id = $request->input('categorieAge_id');

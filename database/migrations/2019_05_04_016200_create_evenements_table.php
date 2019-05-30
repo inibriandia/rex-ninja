@@ -22,6 +22,7 @@ class CreateEvenementsTable extends Migration
             $table->date('dateFin');
             $table->time('heureFin');
             $table->string('telephone', 15);
+            $table->string('cellulaire', 15);
             $table->string('image');
             $table->string('lienFacebook');
             $table->string('email');
