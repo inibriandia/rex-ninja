@@ -69,6 +69,7 @@ class CreateEvenementsTable extends Migration
                 ->onUpdate('cascade');
 
             $table->timestamps();
+
         });
     }
 
@@ -81,4 +82,5 @@ class CreateEvenementsTable extends Migration
     {
         Schema::dropIfExists('evenements');
     }
+
 }

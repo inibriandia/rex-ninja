@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Evenement;
+use App\Ville;
 use Illuminate\Http\Request;
 use DB;
 class EvenementsController extends Controller
@@ -37,7 +38,7 @@ class EvenementsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.event');
     }
 
     /**
@@ -51,7 +52,7 @@ class EvenementsController extends Controller
         $this->validate($request,[
             'titre' => 'required',
             'description' => 'required',
-            'dateDebut' => 'required',
+            /*'dateDebut' => 'required',
             'heureDebut' => 'required',
             'dateFin' => 'required',
             'heureFin' => 'required',
@@ -68,7 +69,7 @@ class EvenementsController extends Controller
             'ville_id' => 'required',
             'categorie_id' => 'required',
             'ambiamce_id' => 'required',
-            'categorieAge_id' => 'required',
+            'categorieAge_id' => 'required',*/
 
         ]);
 
@@ -83,7 +84,7 @@ class EvenementsController extends Controller
         $event->dateFin = $request->input('dateFin');
         $event->heureFin = $request->input('heureFin');
         $event->telephone = $request->input('telephone');
-        $event->telephoneCell = $request->input('telephoneCell');
+        //$event->telephoneCell = $request->input('telephoneCell');
         $event->image = $request->input('image');
         $event->lienFacebook = $request->input('lienFacebook');
         $event->email = $request->input('email');
@@ -94,14 +95,15 @@ class EvenementsController extends Controller
         $event->longitude = $request->input('longitude');
         $event->prix = $request->input('prix');
         $event->organisateur_id = $request->input('organisateur_id');
-        $event->ville_id = $request->input('ville_id');
+        $event->ville_id =  $request->input('ville_id');
         $event->categorie_id = $request->input('categorie_id');
-        $event->ambiamce_id = $request->input('ambiamce_id');
+        $event->ambiance_id = $request->input('ambiance_id');
         $event->categorieAge_id = $request->input('categorieAge_id');
 
+        //echo $event->ville_id;
         $event->save();
 
-        return redirect('/evenements')->with('success','Post Created');
+        return redirect('/')->with('success','Post Created');
     }
 
     /**

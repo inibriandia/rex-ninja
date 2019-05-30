@@ -10,4 +10,5 @@
         <li><a href="/evenements">Retourner les evenements disponibles selon les choix de l'utilisateur</a></li>
         <li><a href="/evenements/1">Retourner un evenement specifique</a></li>
     </ul>
-@endsection
+
+
