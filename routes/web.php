@@ -40,8 +40,6 @@ Route::get('/getvilles/{id}', 'VillesController@getvilles');
 Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
 
 
-Route::get('/event', function () {
-    return view('pages.event');
-});
+Route::get('/event', function () {return view('pages.event');});
 
-
+Route::resource('/event', 'createEventCtrl');

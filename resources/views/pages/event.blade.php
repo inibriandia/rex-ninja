@@ -103,8 +103,14 @@
         {{Form::label('categorieAge_id','num categorie Age')}}
         {{Form::text('categorieAge_id','',['class' => 'form-control','placeholder' => '2'])}}
     </div>
+    <div>
+        {{Form::label('pays','Pays')}}
+        {{Form::select('id', $pays, null, ['class' => 'form-control'])}}
+    </div>
 
-    {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-    {!! Form::close() !!}
+    <div>
+        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+        {!! Form::close() !!}
+    </div>
 
 @endsection
