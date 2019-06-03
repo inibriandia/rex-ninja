@@ -7,6 +7,8 @@ use App\Province;
 use App\Ville;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Input;
+
 class EvenementsController extends Controller
 {
     /**
@@ -111,7 +113,7 @@ class EvenementsController extends Controller
             DB::table('villes')->insert([
                 'ville' => $request->input('ville_id'),
                 //'province_id' => Province::select('id')->where('province',$request->input('provinces_id'))->value('id')
-                'province_id' =>'1',
+                'province_id' =>$request->input('provinces_id'),
             ]);
             $event->ville_id =  Ville::select('id')->where('ville',$request->input('ville_id'))->value('id');
 
