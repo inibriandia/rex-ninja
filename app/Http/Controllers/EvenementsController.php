@@ -97,28 +97,27 @@ class EvenementsController extends Controller
             $fileNameToStore = 'noimage.jpg';
         }
 
-        //create event
-
-        $event = new Evenement;
-
         // verifier si la ville est dans la base de données et l'ajouter si non
+        $villeEntrer = $request->input('ville_id');
+        $idVilleTemp =  Ville::select ('id') ->where ('ville', $villeEntrer)->get();
 
-        if(Ville::where('id', Ville::select('id')->where('ville',$request->input('ville_id'))->value('id'))->get()){
-            $event->ville_id =  Ville::select('id')->where('ville',$request->input('ville_id'))->value('id');
-
+        if(count($idVilleTemp)>0){
+            $ville =  Ville::select('id')->where('ville',$villeEntrer)->value('id');
         }
-        else if(Ville::where('id','!=' ,Ville::select('id')->where('ville',$request->input('ville_id'))->value('id'))->get()){
+        else {
 
             DB::table('villes')->insert([
                 'ville' => $request->input('ville_id'),
                 //'province_id' => Province::select('id')->where('province',$request->input('provinces_id'))->value('id')
-                'province_id' =>$request->input('provinces_id'),
+                'province_id' =>$request->input('province_id'),
             ]);
-            $event->ville_id =  Ville::select('id')->where('ville',$request->input('ville_id'))->value('id');
+            $ville =  Ville::select('id')->where('ville',$request->input('ville_id'))->value('id');
 
         }
 
+        //create event
 
+        $event = new Evenement;
 
         $event->titre = $request->input('titre');
         $event->description = $request->input('description');
@@ -138,7 +137,7 @@ class EvenementsController extends Controller
         $event->longitude = $request->input('longitude');
         $event->prix = $request->input('prix');
         $event->organisateur_id = $request->input('organisateur_id');
-
+        $event->ville_id = $ville;
         //$event->provinces_id = ($request->input('provinces_id'));
         $event->categorie_id = $request->input('categorie_id');
         $event->ambiance_id = $request->input('ambiance_id');
@@ -148,6 +147,7 @@ class EvenementsController extends Controller
         $event->save();
 
         return redirect('/')->with('success','Post Created');
+
     }
 
     /**

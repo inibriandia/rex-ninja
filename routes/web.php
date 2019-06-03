@@ -22,7 +22,7 @@ Route::get('/', 'PagesController@index');
 // Route permettant de faire toutes les requetes
 // Le controlleur 'EvenementsController' va etre appele et la fonction correspondante va etre execute
 Route::resource('evenements', 'EvenementsController');
-//Route::post('evenements', 'EvenementsController');
+
 
 
 // Endpoint de Ange
