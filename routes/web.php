@@ -39,6 +39,8 @@ Route::get('/getvilles/{id}', 'VillesController@getvilles');
 // Nouvelle route pour résoudre le probleme du 2è endpoint
 Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
 
+Route::post('/createEvent', 'EvenementsController@store');
+
 
 Route::get('/event', function () {return view('pages.event');});
 
