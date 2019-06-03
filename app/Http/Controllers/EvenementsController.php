@@ -53,7 +53,6 @@ class EvenementsController extends Controller
      */
     public function store(Request $request)
     {
-
         info($request);
 
         $this->validate($request,[
