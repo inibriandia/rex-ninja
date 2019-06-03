@@ -89,7 +89,7 @@
     </div>
     <div class="form-group">
         {{Form::label('province_id','Province')}}
-        {{Form::text('province_id','', ['class' => 'form-control'])}}
+        {{Form::select('province_id',$provinces, ['class' => 'form-control'])}}
     </div>
     <div class="form-group">
         {{Form::label('categorie_id','num categorie')}}
