@@ -9,7 +9,7 @@
 
 @section('content')
     <h1>Create Posts</h1>
-    {!! Form::open(['action' => 'EvenementsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['url' => 'http://explorenb.local:81/createEvent', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('titre','Titre')}}
         {{Form::text('titre','',['class' => 'form-control','placeholder' => 'Title'])}}
