@@ -11,7 +11,7 @@ class ProvincesPaysController extends Controller
     {
         try
         {
-            $provinces = Province::select ('id','province') ->where ('pays_id', $id)->get();
+            $provinces = Province::select ('id','provinceName') ->where ('pays_id', $id)->get();
 
             $listProv = array('provinces'=>$provinces);
 
