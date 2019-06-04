@@ -32,6 +32,7 @@ return [
     | mechanisms used by this application to persist your user's data.
     |
     | Supported: "session", "token"
+    | 'api' : 'hash' => false,
     |
     */
 
@@ -42,9 +43,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
-            'hash' => false,
         ],
     ],
 

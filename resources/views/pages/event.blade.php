@@ -1,15 +1,11 @@
 
 
-<script type="text/javascript">
-    $('#datetimepicker').datetimepicker({
-        format: 'yyyy-mm-dd'
-    });
-</script>
+
 @extends('layouts.app')
 
 @section('content')
     <h1>Create Posts</h1>
-    {!! Form::open(['action' => 'EvenementsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['url' => 'http://explorenb.local:81/createEvent', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('titre','Titre')}}
         {{Form::text('titre','',['class' => 'form-control','placeholder' => 'Title'])}}
@@ -89,7 +85,7 @@
     </div>
     <div class="form-group">
         {{Form::label('province_id','Province')}}
-        {{Form::text('province_id','', ['class' => 'form-control'])}}
+        {{Form::text('province_id','', ['class' => 'form-control','placeholder' => '2'])}}
     </div>
     <div class="form-group">
         {{Form::label('categorie_id','num categorie')}}
@@ -103,8 +99,14 @@
         {{Form::label('categorieAge_id','num categorie Age')}}
         {{Form::text('categorieAge_id','',['class' => 'form-control','placeholder' => '2'])}}
     </div>
+    <div>
+        {{Form::label('pays','Pays')}}
+        {{Form::select('id', $pays, null, ['class' => 'form-control'])}}
+    </div>
 
-    {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-    {!! Form::close() !!}
+    <div>
+        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
+        {!! Form::close() !!}
+    </div>
 
 @endsection
