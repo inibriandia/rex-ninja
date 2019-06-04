@@ -15,7 +15,7 @@ class CreateProvincesTable extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('province');
+            $table->string('provinceName');
             $table->unsignedBigInteger('pays_id');
 
 

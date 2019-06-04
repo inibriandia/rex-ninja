@@ -48,6 +48,7 @@ class ProvincesController extends Controller
     public function show($id)
     {
         $provinces = Province::find($id);
+
         return json_encode($provinces);
     }
 

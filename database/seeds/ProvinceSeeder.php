@@ -12,20 +12,20 @@ class ProvinceSeeder extends Seeder
     public function run()
     {
         DB::table('provinces')->insert([
-            'province' => 'New Brunswick',
+            'provinceName' => 'New Brunswick',
             'Pays_id' => '1',
         ]);
 
         DB::table('provinces')->insert([
-            'province' => 'Québec',
+            'provinceName' => 'Québec',
             'Pays_id' => '1',
         ]);
         DB::table('provinces')->insert([
-            'province' => 'Washington',
+            'provinceName' => 'Washington',
             'Pays_id' => '2',
         ]);
         DB::table('provinces')->insert([
-            'province' => 'Chicago',
+            'provinceName' => 'Chicago',
             'Pays_id' => '2',
         ]);
     }

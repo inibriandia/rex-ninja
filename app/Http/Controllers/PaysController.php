@@ -16,7 +16,9 @@ class PaysController extends Controller
     public function index()
     {
         $pays = Pays::all();
-        return json_encode($pays);
+        $listePays = array('pays'=>$pays);
+        
+        return json_encode($listePays);
     }
 
     // Retourner les donnes de tout les  pays
