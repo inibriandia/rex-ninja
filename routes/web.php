@@ -24,6 +24,7 @@ Route::get('/', 'PagesController@index');
 Route::resource('evenements', 'EvenementsController');
 
 
+
 // Endpoint de Ange
 // gerer la fonction indiquerChoix du controlleur PagesController
 Route::get('/select', 'PagesController@indiquerChoix');

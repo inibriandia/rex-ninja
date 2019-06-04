@@ -1,10 +1,6 @@
 
 
-<script type="text/javascript">
-    $('#datetimepicker').datetimepicker({
-        format: 'yyyy-mm-dd'
-    });
-</script>
+
 @extends('layouts.app')
 
 @section('content')
@@ -89,7 +85,7 @@
     </div>
     <div class="form-group">
         {{Form::label('province_id','Province')}}
-        {{Form::select('province_id',$provinces, ['class' => 'form-control'])}}
+        {{Form::text('province_id','', ['class' => 'form-control','placeholder' => '2'])}}
     </div>
     <div class="form-group">
         {{Form::label('categorie_id','num categorie')}}
