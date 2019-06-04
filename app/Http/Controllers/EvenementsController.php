@@ -8,6 +8,7 @@ use App\Ville;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Input;
+use Validator;
 
 class EvenementsController extends Controller
 {
@@ -55,7 +56,8 @@ class EvenementsController extends Controller
     {
         info($request);
 
-        $this->validate($request,[
+        $validator = Validator::make($request->all(),[
+        //$validator = $this->validate($request,[
             'titre' => 'required',
             'description' => 'required',
             'dateDebut' => 'required',
@@ -79,6 +81,9 @@ class EvenementsController extends Controller
             'categorieAge_id' => 'required',
 
         ]);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
 
         // Valider les images
 
