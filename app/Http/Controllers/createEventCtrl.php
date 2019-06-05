@@ -13,7 +13,7 @@ class createEventCtrl extends Controller
     //$pays = Pays::pluck('id', 'pays');
     public function index(){
         $pays = Pays::all(['id', 'pays']);
-        $provinces = Province::all(['id', 'province']);
+        $provinces = Province::all(['id', 'provinceName']);
 
         return View::make('pages.event')->with( compact('pays', $pays))->with(compact('provinces',$provinces));
 
