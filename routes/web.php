@@ -21,6 +21,7 @@ Route::get('/', 'PagesController@index');
 
 // Route permettant de faire toutes les requetes
 // Le controlleur 'EvenementsController' va etre appele et la fonction correspondante va etre execute
+Route::get('/evenements/undefined', 'userEventsController@test');
 Route::resource('evenements', 'EvenementsController');
 
 
@@ -38,6 +39,8 @@ Route::get('/getvilles/{id}', 'VillesController@getvilles');
 
 
 // Nouvelle route pour résoudre le probleme du 2è endpoint
+// http://explorenb.local:81/evenements/undefined
+
 Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
 
 Route::post('/createEvent', 'EvenementsController@store');
