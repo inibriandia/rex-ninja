@@ -5,7 +5,7 @@
 
 @section('content')
     <h1>Create Posts</h1>
-    {!! Form::open(['url' => 'http://explorenb.local:81/createEvent', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['url' => 'http://192.168.2.20:81/createEvent', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('titre','Titre')}}
         {{Form::text('titre','',['class' => 'form-control','placeholder' => 'Title'])}}
