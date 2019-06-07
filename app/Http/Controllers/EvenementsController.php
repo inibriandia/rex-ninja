@@ -132,7 +132,7 @@ class EvenementsController extends Controller
         $event->heureFin = $request->input('heureFin');
         $event->telephone = $request->input('telephone');
         $event->cellulaire = $request->input('cellulaire');
-        $event->image = 'http://explorenb.local:81/storage/images/'.$fileNameToStore;
+        $event->image = 'http://192.168.2.20:81/storage/images/'.$fileNameToStore;
         $event->lienFacebook = $request->input('lienFacebook');
         $event->email = $request->input('email');
         $event->numeroMaison = $request->input('numeroMaison');
