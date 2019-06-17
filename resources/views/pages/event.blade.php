@@ -1,11 +1,8 @@
-
-
-
 @extends('layouts.app')
 
 @section('content')
-    <h1>Create Posts</h1>
-    {!! Form::open(['url' => 'http://192.168.2.20:81/createEvent', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    <h1>Créer un événement</h1>
+    {!! Form::open(['url' => 'http://192.168.2.17:81/createEvent', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('titre','Titre')}}
         {{Form::text('titre','',['class' => 'form-control','placeholder' => 'Title'])}}
@@ -15,12 +12,11 @@
         {{Form::textarea('description', '',['id'=>'article-ckeditor','class' => 'form-control','placeholder' => 'Description text'])}}
     </div>
     <div class="form-group">
-        {{Form::label('dateDebut','Datedebut')}}
+        {{Form::label('dateDebut','Date de début')}}
         {{Form::date('dateDebut',null,['class' => 'form-control'])}}
     </div>
-
     <div class="form-group">
-        {{Form::label('heureDebut','HeureDebut')}}
+        {{Form::label('heureDebut','Heure de début')}}
         {{Form::time('heureDebut', '',['class' => 'form-control'])}}
     </div>
     <div class="form-group">
@@ -28,28 +24,12 @@
         {{Form::date('dateFin','',['class' => 'form-control'])}}
     </div>
     <div class="form-group">
-        {{Form::label('heureFin','HeureFin')}}
+        {{Form::label('heureFin','Heure de Fin')}}
         {{Form::time('heureFin', '',['class' => 'form-control'])}}
-    </div>
-    <div class="form-group">
-        {{Form::label('telephone','Telephone')}}
-        {{Form::text('telephone','',['class' => 'form-control','placeholder' => 'Telephone'])}}
-    </div>
-    <div class="form-group">
-        {{Form::label('cellulaire','Cellulaire')}}
-        {{Form::text('cellulaire','',['class' => 'form-control','placeholder' => 'Cellulaire'])}}
     </div>
     <div class="form-group">
         {{Form::label('image','Image')}}
         {{Form::file('image')}}
-    </div>
-    <div class="form-group">
-        {{Form::label('lienFacebook','Lien Facebook')}}
-        {{Form::text('lienFacebook','',['class' => 'form-control','placeholder' => 'page:Bellenature'])}}
-    </div>
-    <div class="form-group">
-        {{Form::label('email','Email')}}
-        {{Form::text('email',old('email'),['class' => 'form-control','placeholder' => 'Email'])}}
     </div>
     <div class="form-group">
         {{Form::label('numeroMaison','Numero maison')}}
@@ -62,6 +42,22 @@
     <div class="form-group">
         {{Form::label('descriptionAdresse','Description de l\'adresse')}}
         {{Form::textarea('descriptionAdresse','',['class' => 'form-control','placeholder' => 'par ex: porte de derriere'])}}
+    </div>
+    <div class="form-group">
+        {{Form::label('telephone','Téléphone')}}
+        {{Form::text('telephone','',['class' => 'form-control','placeholder' => 'Telephone'])}}
+    </div>
+    <div class="form-group">
+        {{Form::label('cellulaire','Cellulaire')}}
+        {{Form::text('cellulaire','',['class' => 'form-control','placeholder' => 'Cellulaire'])}}
+    </div>
+    <div class="form-group">
+        {{Form::label('lienFacebook','Lien Facebook')}}
+        {{Form::text('lienFacebook','',['class' => 'form-control','placeholder' => 'page:Bellenature'])}}
+    </div>
+    <div class="form-group">
+        {{Form::label('email','Email')}}
+        {{Form::text('email',old('email'),['class' => 'form-control','placeholder' => 'Email'])}}
     </div>
     <div class="form-group">
         {{Form::label('latitude','Latitude')}}
