@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Evenement;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Input;
 
 class userEventsController extends Controller
 {
@@ -23,15 +24,18 @@ class userEventsController extends Controller
         
         return json_encode($evenements);
     }
-    public function index($age, $typeActivite, $categorie, $temps, $prix)
+    public function index($age, $typeActivite, $categorie, $temps, $minprix,$maxprix)
     {
         $lat = 13.452740;
         $lon = -16.578030;
 
+
         $todayDate = date('Y-m-d');
+
 
         if($age !== 'undefined')
         {
+
             if($categorie == 1 && $typeActivite == 1){
                 $evenements = Evenement::select('image', 'titre', 'latitude', 'longitude', 'email',
                     DB::raw('sqrt(pow((latitude - ' . $lat . '),2) + pow((longitude - ' . $lon . '),2)) as distance'), 'id')
@@ -59,6 +63,7 @@ class userEventsController extends Controller
                         ->orderBy('distance', 'asc')->get();
                 }
             }
+
         }
         else
         {
@@ -68,6 +73,7 @@ class userEventsController extends Controller
                 ->where('dateFin', '>=', $todayDate)
                 ->get();
         }
+
 
         return json_encode($evenements);
         

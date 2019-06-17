@@ -12,4 +12,24 @@
         <li><a href="/event">Creer un evenement</a></li>
     </ul>
 
+    <form action="{{URL::current()}}">
 
+        <div>
+            <label for="">Price Range</label>
+            min<input type="text" name="minprix"><br>
+            max<input type="text" name="maxprix"><br>
+        </div>
+
+        <button>OK</button>
+
+        <h1>Evenement</h1>
+        <ul>
+            @foreach($evenements as $evenement)
+                <li>{{$evenement->id}}</li>
+            @endforeach
+        </ul>
+
+
+    </form>
+
+@endsection

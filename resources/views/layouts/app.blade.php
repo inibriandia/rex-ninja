@@ -7,6 +7,7 @@
     <link rel="stylesheet" href='{{asset('css/app.css')}}'>
     <title>{{config('app.name','Explore NB')}}</title>
 
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
@@ -14,6 +15,7 @@
 </head>
 <body>
 
+@include('inc.navbar')
 <div class="container">
     @include('inc.messages')
     @yield('content')

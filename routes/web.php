@@ -14,7 +14,8 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
+use App\Evenement;
+use Illuminate\Support\Facades\Input;
 // Route de la page principal
 // Cette route va declencher l'execution de la page 'index' du controlleur
 Route::get('/', 'PagesController@index');
@@ -41,7 +42,8 @@ Route::get('/getvilles/{id}', 'VillesController@getvilles');
 // Nouvelle route pour résoudre le probleme du 2è endpoint
 // http://explorenb.local:81/evenements/undefined
 
-Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{prix}', 'userEventsController@index');
+Route::get('/evenements/{age}/{typeActivite}/{categorie}/{temps}/{minprix}/{maxprix}', 'userEventsController@index');
+
 
 Route::post('/createEvent', 'EvenementsController@store');
 
