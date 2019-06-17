@@ -14,11 +14,21 @@
 
 </head>
 <body>
+<<<<<<< HEAD
 
 @include('inc.navbar')
 <div class="container">
     @include('inc.messages')
     @yield('content')
+=======
+<div id="app">
+    @include('inc.navbar')
+    <br/>
+    <div class="container">
+        @include('inc.messages')
+        @yield('content')
+    </div>
+>>>>>>> 51ab908836ab07aa1deb1ecfdab241239f75a37a
 </div>
 
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
